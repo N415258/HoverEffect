@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+        }
+        body{
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap:5vw;
+            height: 100vh;
+        }
+        .cardbox ,.cardbox2 {
+            width: 350px;
+            height: 500px;
+            background: #2c2c2c;
+            position: relative;
+            border-radius: 10px;  
+            cursor: pointer;  
+            display: flex;
+            justify-content: center;
+            align-items: center;                           
+        }
+        .cardbox::before{
+            content: '';
+            border-radius:15px;
+            width: 350px;
+            height: 500px;
+            background: tomato;    
+            position: absolute; 
+            z-index:-1;  
+            transition: 0.3s;
+            animation: Animate 2s linear infinite;     
+        }
+        .cardbox:hover::before{
+            width: 358px;
+            height: 508px;
+        }
+
+        @keyframes Animate{           
+            50%{
+                filter: hue-rotate(350deg);
+            }
+        }
+
+        .cardbox2::before{
+            content: '';
+            position: absolute;
+            width: 50%;
+            height: 150%;
+            background-color: white;
+            transform: rotate(45deg);   
+            z-index: -1;         
+        }
+        .cardbox2:hover::before{
+        animation: rotatediv 2s linear infinite;
+        }
+        .cardbox2{
+            z-index: 10;
+            overflow: hidden;
+        }
+
+        .cardbox2::after{
+            content: '';
+            position: absolute;           
+            inset: 5px;
+            z-index: -1;
+            border-radius:8px;
+            background-color:#2c2c2c;
+        }
+        @keyframes rotatediv{           
+           from{
+                transform: rotate(0deg);
+            }
+            to{
+                transform: rotate(360deg);
+            }
+        }
+
+    </style>
+    </head>
+    <body>
+        <div class="cardbox"></div>
+        <div class="cardbox2"></div>
+    </body>
+</html>
